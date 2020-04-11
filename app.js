@@ -1,6 +1,9 @@
+const express = require('express')
+const app = express()
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const Canvas = require('canvas');
+const port = process.env.PORT || 3000;
 
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!!`)
@@ -75,3 +78,8 @@ client.on('guildMemberAdd', async member => {
 });
 
 client.login('Njk4NjM3NjI4OTQxMDA5NjYx.XpIvKQ.JaNLVxNfwWw2k_INP6cS_R45fLQ');
+
+app.listen(port, function() {                                                                             
+    console.log('Umbler listening on port %s', port);                                                     
+});                                                                                                       
+       
