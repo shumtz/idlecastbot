@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const ytdl = require('ytdl-core');
 const Discord = require('discord.js')
 const client = new Discord.Client()
 const Canvas = require('canvas');
@@ -18,6 +19,27 @@ client.on('message', msg => {
 		msg.channel.send('Boop.');
 		}
 });
+
+client.on('message', msg => {
+	if (msg.content === `Bom dia` || msg.content === `bom dia` || msg.content === `Bom Dia`) {
+		msg.react('☀️');
+		msg.channel.send(`Bom dia!`)
+	}
+})
+
+client.on('message', msg => {
+	if (msg.content === `Boa tarde` || msg.content === `boa tarde` || msg.content === `Boa Tarde`) {
+		msg.react('🌥️')
+		msg.channel.send(`Boa tarde!`)
+	}
+})
+
+client.on('message', msg => {
+	if (msg.content === `Boa noite` || msg.content === `boa noite` || msg.content === `Boa Noite`) {
+		msg.react('🌑')
+		msg.channel.send(`Boa noite!`)
+	}
+})
 
 client.on('message', msg => {
 	if(msg.content === `${prefix}Podcast` || msg.content === `${prefix}podcast`) {
@@ -75,6 +97,28 @@ client.on('guildMemberAdd', async member => {
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'welcome-image.png');
 
 	channel.send(`${member}!`, attachment);
+});
+
+client.on('message', message => {
+	if (message.content === '!play') {
+		if (message.channel.type !== 'text') return;
+
+		const voiceChannel = message.member.voice.channel;
+
+		if (!voiceChannel) {
+			return message.reply('please join a voice channel first!');
+		}
+
+		voiceChannel.join().then(connection => {
+			const stream = ytdl('https://www.youtube.com/watch?v=eBG7P-K-r1Y', { filter: 'audioonly' });
+			const dispatcher = connection.play(stream);
+
+			// dispatcher.on('finish', () => voiceChannel.leave());
+			if (message.content === '!stop') {
+				console.log(voiceChannel.leave())	
+			}
+		});
+	}
 });
 
 client.login('Njk4NjM3NjI4OTQxMDA5NjYx.XpIvKQ.JaNLVxNfwWw2k_INP6cS_R45fLQ');
