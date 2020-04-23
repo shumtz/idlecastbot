@@ -6,6 +6,10 @@ const client = new Discord.Client()
 const Canvas = require('canvas');
 const port = process.env.PORT || 3000;
 
+app.get('/', function (req, res) {
+  res.send('BOT');
+});
+
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!!`)
 });
