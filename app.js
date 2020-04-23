@@ -139,7 +139,7 @@ client.on('message', message => {
 	}
 });
 
-client.login('Njk4NjM3NjI4OTQxMDA5NjYx.XpIvKQ.JaNLVxNfwWw2k_INP6cS_R45fLQ');
+client.login('Njk4NjM3NjI4OTQxMDA5NjYx.XqEKZg.36bddvrPw4rIlbOEf3AgEuN73Pc');
 
 app.listen(port, function() {                                                                             
     console.log('Umbler listening on port %s', port);                                                     
