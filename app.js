@@ -6,6 +6,21 @@ const client = new Discord.Client()
 const Canvas = require('canvas');
 const port = process.env.PORT || 3000;
 
+// const webhookClient = new Discord.WebhookClient('702713565802528879', '9G8A1ilaNxwRcGT-7LO2HLDCI6OHKRKBNw_0loafhbr9O-zksMI9PPUrnK3WeMidPdT5');
+
+const prefix = '!'
+
+// client.on("message", message => {
+//   let args = message.content.split(" ").slice(1);
+//   if (message.content.startsWith(prefix + "createHook")) {
+//     message.channel.createWebhook("IdleCast Bot", "https://i.imgur.com/p2qNFag.png")
+//       .then(webhook => webhook.edit("IdleCast Bot", "https://i.imgur.com/p2qNFag.png")
+//         .then(wb => message.author.send(`Here is your webhook https://canary.discordapp.com/api/webhooks/${wb.id}/${wb.token}`))
+//         .catch(console.error))
+//       .catch(console.error);
+//   }
+// });
+
 app.get('/', function (req, res) {
   res.send('BOT');
 });
@@ -14,7 +29,6 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!!`)
 });
 
-const prefix = '!'
 
 client.on('message', msg => {
 		if (msg.content === `${prefix}ping` || msg.content === `${prefix}Ping`) {
