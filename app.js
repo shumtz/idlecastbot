@@ -30,13 +30,13 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-		if (msg.content === `${prefix}Are you working?` || msg.content === `${prefix}are you working?`) {
+		if (msg.content === `Are you working?` || msg.content === `are you working?`) {
 		msg.channel.send('Yes!');
 	}
 });
 
 client.on('message', msg => {
-		if (msg.content === `${prefix}Thank You` || msg.content === `${prefix}thank you`) {
+		if (msg.content === `Thank You` || msg.content === `thank you`) {
 		msg.channel.send('<3');
 	}
 });
