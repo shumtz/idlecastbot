@@ -29,13 +29,22 @@ client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!!`)
 });
 
+client.on('message', msg => {
+		if (msg.content === `${prefix}Are you working?` || msg.content === `${prefix}are you working?`) {
+		msg.channel.send('Yes!');
+	}
+});
+
+client.on('message', msg => {
+		if (msg.content === `${prefix}Thank You` || msg.content === `${prefix}thank you`) {
+		msg.channel.send('<3');
+	}
+});
 
 client.on('message', msg => {
 		if (msg.content === `${prefix}ping` || msg.content === `${prefix}Ping`) {
 		msg.channel.send('Pong.');
-	} else if (msg.content === `${prefix}beep`) {
-		msg.channel.send('Boop.');
-		}
+	}
 });
 
 client.on('message', msg => {
