@@ -148,9 +148,9 @@ client.on('message', message => {
 	}
 });
 
-client.login('Njk4NjM3NjI4OTQxMDA5NjYx.XqEKZg.36bddvrPw4rIlbOEf3AgEuN73Pc');
+client.login('TOKEN');
 
 app.listen(port, function() {                                                                             
-    console.log('Umbler listening on port %s', port);                                                     
+    console.log('listening on port %s', port);                                                     
 });                                                                                                       
        
